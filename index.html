@@ -13,5 +13,59 @@
     </head>
     <body>
       <h1>Roll 4 Initiative</h1>
+
+      <section id="message"></section>
+      <section class="no-user">
+        <form id="sign-in">
+          <h2>Sign in </h2>
+            <input type='email' name='credentials[email]' placeholder='Enter Email Here' required>
+            <br>
+
+            <input type='password' name='credentials[password]' placeholder='Enter Password Here' required>
+            <br>
+            <button class="btn btn-info">Sign in</button>
+        </form>
+        <form id="sign-up">
+          <h2>Sign in </h2>
+            <input type='text' name='credentials[userName]' placeholder='Enter Username Here' required>
+            <br>
+            <input type='email' name='credentials[email]' placeholder='Enter Email Here' required>
+            <br>
+            <input type='password' name='credentials[password]' placeholder='Enter Password Here' required>
+            <br>
+            <input type='password' name='credentials[password_confirmation]' placeholder='Confirm Password Here' required>
+            <br>
+            <button class="btn btn-info">Sign in</button>
+        </form>
+      </section>
+      <section class="user-signed-in">
+        <nav class="nav-bar">
+          ~ no connection to server yet
+          <button id="change-password-button" class="btn btn-outline-primary">Change Password</button>
+          <button id="sign-out" class="btn btn-outline-primary">Sign Out</button>
+        </nav>
+        <hr>
+        <form id="create-campaign">
+          <h2>Create Campaign </h2>
+            <input type='text' name='title' placeholder='Enter Title Here' required>
+            <br>
+            <input type='text' name='description' placeholder='Enter Description Here' required>
+            <br>
+            <button class="btn btn-info">Submit </button>
+        </form>
+      </section>
+      <hr>
+      <section class="campaigns">
+        <div id="new-campaign"></div>
+        <button id="show-campaigns">Show Campaigns</button>
+        <div id="all-campaigns">
+        </div>
+      </section>
+
+<hr>
+      <hr>
+      <section id="store">
+      <button class="btn btn-dark">Store</button>
+    </section>
     </body>
 </html>
