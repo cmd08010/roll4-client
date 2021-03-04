@@ -24,5 +24,4 @@ $(() => {
   $('#store').on('click', () => {
     console.log(store)
   })
-
 })
