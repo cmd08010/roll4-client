@@ -2,7 +2,7 @@
 
 let apiUrl
 const apiUrls = {
-  production: 'https://roll4-initiative.herokuapp.com/',
+  production: 'https://roll4-initiative.herokuapp.com',
   development: 'http://localhost:4741'
 }
 
