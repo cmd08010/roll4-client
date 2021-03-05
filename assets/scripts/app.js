@@ -13,8 +13,13 @@ $(() => {
 
   $('#sign-in').on('submit', userEvents.onSignIn)
   $('#sign-up').on('submit', userEvents.onSignUp)
-  $('.user-signed-in').hide()
   $('#sign-out').on('click', userEvents.onSignOut)
+  $('#change-password-button').on('click', userEvents.onShowChangePasswordForm)
+  $('.user-options').on('submit', '#change-password', userEvents.onChangePassword)
+
+  // show and hide
+  $('.user-signed-in').hide()
+  $('#change-password').hide()
 
   // campaign event listeners
   $('.campaigns').hide()

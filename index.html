@@ -40,7 +40,6 @@
       </section>
       <section class="user-signed-in">
         <nav class="nav-bar">
-          ~ no connection to server yet
           <button id="change-password-button" class="btn btn-outline-primary">Change Password</button>
           <button id="sign-out" class="btn btn-outline-primary">Sign Out</button>
         </nav>
@@ -53,6 +52,16 @@
             <br>
             <button class="btn btn-info">Submit </button>
         </form>
+        <section class="user-options">
+        <form id='change-password'>
+          <h2>Change your password</h2>
+            <br>
+            <input name="passwords[old]" placeholder='Enter Old Password Here' type="password">
+            <br>
+            <input name="passwords[new]" placeholder='Enter New Password Here' type="password">
+            <button class="btn btn-info">Change Password</button>
+        </form>
+      </section>
       <hr>
       <section class="campaigns">
         <div id="new-campaign"></div>

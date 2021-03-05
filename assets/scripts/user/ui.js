@@ -47,11 +47,20 @@ const signOutSuccess = () => {
 
 const signOutFailure = () => {}
 
+const changePasswordSuccess = (response) => {
+  $('#message').html('Success, youre password has been change')
+  $('#change-password').trigger('reset')
+}
+
+const changePasswordFailure = (response) => {}
+
 module.exports = {
   signInSuccess,
   signInFailure,
   signUpSuccess,
   signUpFailure,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
+  changePasswordSuccess,
+  changePasswordFailure
 }
