@@ -4,6 +4,7 @@
 // const example = require('./example')
 const userEvents = require('./user/events')
 const campaignEvents = require('./campaign/events')
+const sessionEvents = require('./session/events')
 const store = require('./store')
 // use require without a reference to ensure a file is bundled
 // require('./example')
@@ -31,13 +32,21 @@ $(() => {
   $('#sign-up').hide() // this will be shown on the sign up form button
   $('#sign-in').hide() // this will be shown on the sign in form button
 
-
-
   // campaign event listeners
-  $('.campaigns').hide()
+  $('.campaigns').hide() // show in
   $('#create-campaign').on('submit', campaignEvents.onCreateCampaign)
   $('#show-campaigns').on('click', campaignEvents.onShowAllCampaigns)
 
+  // delete campaign
+  $('#clicked-campaign').on('click', '#delete-clicked-campaign', campaignEvents.onDeleteCampaign)
+
+  // show a campaign's page
+  $('#all-campaigns').on('click', '.campaign', campaignEvents.onShowCampaignPage)
+
+  // sessions
+  $('.sessions').hide()
+  $('#create-session').on('submit')
+  $('#show-sessions').on('click', sessionEvents.onShowAllSessions)
 
   // delete once complete
   $('#store').on('click', () => {
