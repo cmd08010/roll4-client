@@ -14,6 +14,7 @@ $(() => {
   $('#sign-in').on('submit', userEvents.onSignIn)
   $('#sign-up').on('submit', userEvents.onSignUp)
   $('.user-signed-in').hide()
+  $('#sign-out').on('click', userEvents.onSignOut)
 
   // campaign event listeners
   $('.campaigns').hide()

@@ -32,10 +32,19 @@ const signUpFailure = (response) => {
   $('#sign-in').trigger('reset')
 }
 
+const signOutSuccess = () => {
+  store.user = {}
+  $('.no-user').show()
+  $('.user-signed-in').hide()
+}
+
+const signOutFailure = () => {}
 
 module.exports = {
   signInSuccess,
   signInFailure,
   signUpSuccess,
-  signUpFailure
+  signUpFailure,
+  signOutSuccess,
+  signOutFailure
 }

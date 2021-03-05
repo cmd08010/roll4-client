@@ -24,7 +24,14 @@ const onSignUp = (event) => {
     .catch(ui.signUpFailure)
 }
 
+const onSignOut = (event) => {
+  api.signOut()
+    .then(ui.signOutSuccess)
+    .catch(ui.signOutFailure)
+}
+
 module.exports = {
   onSignIn,
-  onSignUp
+  onSignUp,
+  onSignOut
 }
