@@ -48,47 +48,47 @@
         <nav class="nav-bar">
           <button id="change-password-button" class="btn btn-outline-primary">Change Password</button>
           <button id="sign-out" class="btn btn-outline-primary">Sign Out</button>
+          <button id="show-campaigns" class="btn btn-outline-primary">Show Campaigns</button>
         </nav>
         <hr>
-        <form id="create-campaign">
-          <h2>Create Campaign </h2>
-            <input type='text' name='title' placeholder='Enter Title Here' required>
-            <br>
-            <input type='text' name='description' placeholder='Enter Description Here' required>
-            <br>
-            <button class="btn btn-info">Submit </button>
-        </form>
         <section class="user-options">
-        <form id='change-password'>
-          <h2>Change your password</h2>
-            <br>
-            <input name="passwords[old]" placeholder='Enter Old Password Here' type="password">
-            <br>
-            <input name="passwords[new]" placeholder='Enter New Password Here' type="password">
-            <button class="btn btn-info">Change Password</button>
-        </form>
-      </section>
+          <form id='change-password'>
+            <h2>Change your password</h2>
+              <br>
+              <input name="passwords[old]" placeholder='Enter Old Password Here' type="password">
+              <br>
+              <input name="passwords[new]" placeholder='Enter New Password Here' type="password">
+              <button class="btn btn-info">Change Password</button>
+            </form>
+          </section>
       <hr>
       <section class="campaigns">
+        <form id="create-campaign">
+          <h2>Create Campaign </h2>
+          <input type='text' name='title' placeholder='Enter Title Here' required>
+          <br>
+          <input type='text' name='description' placeholder='Enter Description Here' required>
+          <br>
+          <button class="btn btn-info">Submit </button>
+        </form>
         <div id="new-campaign"></div>
-        <button id="show-campaigns">Show Campaigns</button>
         <div id="all-campaigns"></div>
-        <section id="clicked-campaign"></section>
+          <section id="clicked-campaign"></section>
       </section>
       <section class="sessions">
         <div id="new-session"></div>
         <button id="show-sessions">Show Sessions</button>
         <div id="all-sessions"></div>
-        <section id="clicked-session"></section>
         <hr>
         <form id="create-session">
           <h3>Create Session </h3>
-            <input type='text' name='title' placeholder='Enter Title Here' required>
-            <br>
-            <input type='text' name='description' placeholder='Enter Description Here' required>
-            <br>
-            <button class="btn btn-info">Submit</button>
+          <input type='text' name='title' placeholder='Enter Title Here' required>
+          <br>
+          <input type='text' name='text' placeholder='Enter Description Here' required>
+          <br>
+          <button class="btn btn-info">Submit</button>
         </form>
+        <section id="clicked-session"></section>
         <section id="session"></section>
       </section>
     </section>

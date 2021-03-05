@@ -4,13 +4,37 @@ const ui = require('./ui')
 const store = require('../store')
 
 
-const onCreateSession = () => {}
+const onCreateSession = (event) => {
+  event.preventDefault()
+  const form = event.target
+  const data = { session: getFormFields(form) }
+  console.log(data, 'this is my data it need to looks like campaign then my data')
+  api.createSession(store.campaign._id, data)
+    .then(ui.createSessionSuccess)
+    .catch(ui.createSessionFailure)
+}
 
-const onShowAllSessions = () => {}
+const onShowAllSessions = (event) => {
+  console.log(event.target)
+  api.getAllSessions(store.campaign._id)
+    .then(ui.showAllSessionsSuccess)
+    .catch(ui.showApiFailureMessaging)
+}
 
-const onDeleteSession = () => {}
+const onDeleteSession = (event) => {
+  console.log(event.target)
+  api.deleteSession(store.campaign._id, store.session._id)
+    .then(ui.deleteSessionSuccess)
+    .catch(ui.showApiFailureMessaging)
+  }
 
-const onShowSessionPage = () => {}
+const onShowSessionPage = (event) => {
+  const sessionId = $(event.target).data('session-id')
+  console.log(sessionId)
+  api.getOneSession(store.campaign._id, sessionId)
+    .then(ui.showSessionPage)
+    .catch(ui.showApiFailureMessaging)
+}
 
 module.exports = {
   onCreateSession,

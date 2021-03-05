@@ -17,7 +17,6 @@ $(() => {
   $('#sign-up').on('submit', userEvents.onSignUp)
   $('#sign-out').on('click', userEvents.onSignOut)
 
-
   // show sign up and sign in forms
   $('#show-signin').on('click', () => $('#sign-in').toggle())
   $('#show-signup').on('click', () => $('#sign-up').toggle())
@@ -45,8 +44,10 @@ $(() => {
 
   // sessions
   $('.sessions').hide()
-  $('#create-session').on('submit')
+  $('#create-session').on('submit', sessionEvents.onCreateSession)
   $('#show-sessions').on('click', sessionEvents.onShowAllSessions)
+  $('#all-sessions').on('click', '.session', sessionEvents.onShowSessionPage)
+  $('#clicked-session').on('click', '#delete-clicked-session', sessionEvents.onDeleteSession)
 
   // delete once complete
   $('#store').on('click', () => {

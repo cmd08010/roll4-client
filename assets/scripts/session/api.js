@@ -5,7 +5,7 @@ const store = require('../store')
 const createSession = (id, data) => {
   return $.ajax({
     method: 'POST',
-    url: `${config.apiUrl}/campaigns/:${id}/sessions`,
+    url: `${config.apiUrl}/campaigns/${id}/sessions`,
     headers: {
       Authorization: `Bearer ${store.user.token}`
     },
@@ -16,7 +16,7 @@ const createSession = (id, data) => {
 const getAllSessions = (id) => {
   return $.ajax({
     method: 'GET',
-    url: `${config.apiUrl}/campaigns/:${id}/sessions`,
+    url: `${config.apiUrl}/campaigns/${id}/sessions`,
     headers: {
       Authorization: `Bearer ${store.user.token}`
     }
@@ -26,7 +26,7 @@ const getAllSessions = (id) => {
 const getOneSession = (id, sessionId) => {
   return $.ajax({
     method: 'GET',
-    url: `${config.apiUrl}/campaigns/${id}/session/${sessionId}`,
+    url: `${config.apiUrl}/campaigns/${id}/sessions/${sessionId}`,
     headers: {
       Authorization: `Bearer ${store.user.token}`
     }
