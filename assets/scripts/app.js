@@ -11,20 +11,33 @@ const store = require('./store')
 $(() => {
   // your JS code goes here
 
+  // user events
   $('#sign-in').on('submit', userEvents.onSignIn)
   $('#sign-up').on('submit', userEvents.onSignUp)
   $('#sign-out').on('click', userEvents.onSignOut)
+
+
+  // show sign up and sign in forms
+  $('#show-signin').on('click', () => $('#sign-in').toggle())
+  $('#show-signup').on('click', () => $('#sign-up').toggle())
+
+  // show change password form and then enable event listener
   $('#change-password-button').on('click', userEvents.onShowChangePasswordForm)
   $('.user-options').on('submit', '#change-password', userEvents.onChangePassword)
 
-  // show and hide
+  // show and hide user forms
   $('.user-signed-in').hide()
   $('#change-password').hide()
+  $('#sign-up').hide() // this will be shown on the sign up form button
+  $('#sign-in').hide() // this will be shown on the sign in form button
+
+
 
   // campaign event listeners
   $('.campaigns').hide()
   $('#create-campaign').on('submit', campaignEvents.onCreateCampaign)
   $('#show-campaigns').on('click', campaignEvents.onShowAllCampaigns)
+
 
   // delete once complete
   $('#store').on('click', () => {
