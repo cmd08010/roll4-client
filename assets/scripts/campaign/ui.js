@@ -6,10 +6,12 @@ const createCampaignSuccess = (response) => {
 console.log(response, "my creation was a success")
 store.campaign = response.campaign
   $('#new-campaign').text(`${response.campaign.title} campaign was created`)
+  $('#create-campaign').trigger('reset')
 }
 
 const createCampaignFailure = (response) => {
   console.log(response)
+    $('#create-campaign').trigger('reset')
 }
 
 const showAllCampaignsSuccess = (response) => {
@@ -19,6 +21,7 @@ const showAllCampaignsSuccess = (response) => {
     $('#all-campaigns').append(`<h2>${campaign.title}: ${campaign.description}</h2>
     <p>Started on: ${campaign.createdAt}</p>`)
   })
+  $('#create-campaign').trigger('reset')
 }
 
 const showAllCampaignsFailure = () => {}

@@ -17,7 +17,6 @@ const onSignUp = (event) => {
   const data = getFormFields(form)
   api.signUp(data)
     .then(response => {
-      console.log(response)
       return api.signIn(data)
     })
     .then(ui.signUpSuccess)
