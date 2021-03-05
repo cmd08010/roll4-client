@@ -13,7 +13,11 @@
     </head>
     <body>
       <h1><a href="/" id="home-link">Roll 4 Initiative</a></h1>
-
+      <hr>
+      <section id="store">
+        <button class="btn btn-dark">Store</button>
+      </section>
+      <hr>
       <section id="message"></section>
       <section class="no-user">
         <button class="btn btn-info" id="show-signin">Sign in</button>
@@ -68,15 +72,27 @@
       <section class="campaigns">
         <div id="new-campaign"></div>
         <button id="show-campaigns">Show Campaigns</button>
-        <div id="all-campaigns">
-        </div>
+        <div id="all-campaigns"></div>
+        <section id="clicked-campaign"></section>
+      </section>
+      <section class="sessions">
+        <div id="new-session"></div>
+        <button id="show-sessions">Show Sessions</button>
+        <div id="all-sessions"></div>
+        <section id="clicked-session"></section>
+        <hr>
+        <form id="create-session">
+          <h3>Create Session </h3>
+            <input type='text' name='title' placeholder='Enter Title Here' required>
+            <br>
+            <input type='text' name='description' placeholder='Enter Description Here' required>
+            <br>
+            <button class="btn btn-info">Submit</button>
+        </form>
+        <section id="session"></section>
       </section>
     </section>
 
 <hr>
-      <hr>
-      <section id="store">
-      <button class="btn btn-dark">Store</button>
-    </section>
     </body>
 </html>

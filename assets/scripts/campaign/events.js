@@ -1,6 +1,7 @@
 const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
+const store = require('../store')
 
 const onCreateCampaign = (event) => {
   event.preventDefault()
@@ -14,12 +15,28 @@ const onCreateCampaign = (event) => {
 
 const onShowAllCampaigns = (event) => {
   console.log(event.target)
-  api.showAllCampaigns()
+  api.getAllCampaigns()
     .then(ui.showAllCampaignsSuccess)
-    .catch(ui.showAllCampaignsFailure)
+    .catch(ui.showApiFailureMessaging)
+}
+
+const onShowCampaignPage = (event) => {
+  const campaignId = $(event.target).data('campaign-id')
+  console.log(campaignId)
+  api.getOneCampaign(campaignId)
+    .then(ui.showCampaignPage)
+    .catch(ui.showApiFailureMessaging)
+}
+
+const onDeleteCampaign = (event) => {
+  api.deleteCampaign(store.campaign._id)
+    .then(ui.deleteCampaignSuccess)
+    .catch(ui.showApiFailureMessaging)
 }
 
 module.exports = {
   onCreateCampaign,
-  onShowAllCampaigns
+  onShowAllCampaigns,
+  onDeleteCampaign,
+  onShowCampaignPage
 }

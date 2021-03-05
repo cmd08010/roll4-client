@@ -2,10 +2,10 @@
 const config = require('../config')
 const store = require('../store')
 
-const createCampaign = (data) => {
+const createSession = (id, data) => {
   return $.ajax({
     method: 'POST',
-    url: `${config.apiUrl}/campaigns`,
+    url: `${config.apiUrl}/campaigns/:${id}/sessions`,
     headers: {
       Authorization: `Bearer ${store.user.token}`
     },
@@ -13,37 +13,37 @@ const createCampaign = (data) => {
   })
 }
 
-const getAllCampaigns = () => {
+const getAllSessions = (id) => {
   return $.ajax({
     method: 'GET',
-    url: `${config.apiUrl}/campaigns`,
+    url: `${config.apiUrl}/campaigns/:${id}/sessions`,
     headers: {
       Authorization: `Bearer ${store.user.token}`
     }
   })
 }
 
-const getOneCampaign = (id) => {
+const getOneSession = (id, sessionId) => {
   return $.ajax({
     method: 'GET',
-    url: `${config.apiUrl}/campaigns/${id}`,
+    url: `${config.apiUrl}/campaigns/${id}/session/${sessionId}`,
     headers: {
       Authorization: `Bearer ${store.user.token}`
     }
   })
 }
 
-const deleteCampaign = (id) => {
+const deleteSession = (id, sessionId) => {
   return $.ajax({
     method: 'DELETE',
-    url: `${config.apiUrl}/campaigns/${id}`,
+    url: `${config.apiUrl}/campaigns/${id}/sessions/${sessionId}`,
     headers: {
       Authorization: `Bearer ${store.user.token}`
     }
   })
 }
 
-const updateCampaign = (id, data) => {
+const updateSession = (id, data) => {
   return $.ajax({
     method: 'DELETE',
     url: `${config.apiUrl}/campaigns/${id}`,
@@ -55,9 +55,9 @@ const updateCampaign = (id, data) => {
 }
 
 module.exports = {
-  createCampaign,
-  getAllCampaigns,
-  getOneCampaign,
-  deleteCampaign,
-  updateCampaign
+  createSession,
+  getAllSessions,
+  getOneSession,
+  deleteSession,
+  updateSession
 }
