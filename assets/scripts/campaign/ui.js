@@ -43,6 +43,7 @@ const showCampaignPage = (response) => {
   $('#clicked-campaign').html(`
     <h1>${response.campaign.title}</h1>
     <h2>${response.campaign.description}</h2>
+    <button type="button" class="btn btn-primary" data-campaign-id=${response.campaign._id} id="edit-clicked-campaign-button">Edit</button>
       <button id="delete-modal-clicked-campaign"  data-toggle="modal" data-target="#deleteModal"> Delete </button>
       <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
@@ -73,11 +74,14 @@ const showApiFailureMessaging = (response) => {
   console.log(response, "the api call failed - here is my UI")
 }
 
+const editCampaignSuccess = () => {}
+
 module.exports = {
   createCampaignSuccess,
   createCampaignFailure,
   showAllCampaignsSuccess,
   showCampaignPage,
   deleteCampaignSuccess,
-  showApiFailureMessaging
+  showApiFailureMessaging,
+  editCampaignSuccess
 }

@@ -45,7 +45,7 @@ const deleteCampaign = (id) => {
 
 const updateCampaign = (id, data) => {
   return $.ajax({
-    method: 'DELETE',
+    method: 'PATCH',
     url: `${config.apiUrl}/campaigns/${id}`,
     headers: {
       Authorization: `Bearer ${store.user.token}`

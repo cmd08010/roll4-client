@@ -39,6 +39,14 @@ $(() => {
   // delete campaign
   $('#clicked-campaign').on('click', '#delete-clicked-campaign', campaignEvents.onDeleteCampaign)
 
+  // // Edit campaign and session
+  // $('#clicked-campaign').on('click', '#edit-clicked-campaign-button', () => {
+  //   $('#edit-clicked-campaign-form').show()
+  // })
+  // $('#clicked-campaign').on('click', '#edit-clicked-campaign', campaignEvents.onEditCampaign)
+  // $('#clicked-session').on('click', '#edit-clicked-campaign', sessionEvents.onEditSession)
+
+
   // show a campaign's page
   $('#all-campaigns').on('click', '.campaign', campaignEvents.onShowCampaignPage)
 

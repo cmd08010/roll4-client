@@ -43,10 +43,10 @@ const deleteSession = (id, sessionId) => {
   })
 }
 
-const updateSession = (id, data) => {
+const updateSession = (id, sessionId, data) => {
   return $.ajax({
-    method: 'DELETE',
-    url: `${config.apiUrl}/campaigns/${id}`,
+    method: 'PATCH',
+    url: `${config.apiUrl}/campaigns/${id}/sessions/${sessionId}`,
     headers: {
       Authorization: `Bearer ${store.user.token}`
     },

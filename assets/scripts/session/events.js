@@ -36,9 +36,21 @@ const onShowSessionPage = (event) => {
     .catch(ui.showApiFailureMessaging)
 }
 
+const onEditSession = (event) => {
+  event.preventDefault()
+  const form = event.target
+  const data = { campaign: getFormFields(form) }
+  const campaignId = $(event.target).data('campaign-id')
+  api.updateCampaign(campaignId, data)
+  .then(ui.editCampaignSuccess)
+  .catch(ui.showApiFailureMessaging)
+
+}
+
 module.exports = {
   onCreateSession,
   onShowAllSessions,
   onDeleteSession,
-  onShowSessionPage
+  onShowSessionPage,
+  onEditSession
 }

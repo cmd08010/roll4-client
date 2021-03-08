@@ -38,6 +38,7 @@ const showSessionPage = (response) => {
   $('#clicked-session').html(`
     <h1>${response.session.title}</h1>
     <h2>${response.session.text}</h2>
+      <button type="button" class="btn btn-primary" data-session-id=${response.session._id} id="edit-clicked-session">Edit</button>
       <button id="delete-modal-clicked-session"  data-toggle="modal" data-target="#deleteSessionModal"> Delete </button>
       <div class="modal fade" id="deleteSessionModal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
@@ -73,6 +74,8 @@ const showApiFailureMessaging = () => {
   console.log(response, "the api call failed - here is my UI")
 }
 
+const editSessionSuccess = () => {}
+
 
 module.exports = {
   createSessionSuccess,
@@ -80,5 +83,6 @@ module.exports = {
   showAllSessionsSuccess,
   showSessionPage,
   deleteSessionSuccess,
-  showApiFailureMessaging
+  showApiFailureMessaging,
+  editSessionSuccess
 }
