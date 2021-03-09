@@ -30,14 +30,6 @@ const showCampaignPage = (response) => {
   store.campaign = response.campaign
   $('#message').text('')
   console.log(response, "my show campaign page suceess response")
-  // response format: {
-  // createdAt: "2021-03-04T20:41:54.492Z"
-  // owner: user id
-  // sessions: (2) [{…}, {…}]
-  // text: "lets add an entry"
-  // title: "New campaign"
-  // updatedAt:
-  // }
 
   $('#all-campaigns').hide()
   $('#clicked-campaign').html(`
@@ -74,7 +66,44 @@ const showApiFailureMessaging = (response) => {
   console.log(response, "the api call failed - here is my UI")
 }
 
-const editCampaignSuccess = () => {}
+const showEditCampaignPage = (response) => {
+  $('#clicked-campaign').html(`
+  <form id="edit-clicked-campaign">
+    <h2>${store.campaign.title}</h2>
+    <input type='text' name='title' value=${store.campaign.title} required>
+    <br>
+    <input type='text' name='description' value=${store.campaign.description} required>
+    <br>
+    <button class="btn btn-info">Submit Changes</button>
+  </form>
+  `)
+}
+
+const editCampaignSuccess = (response) => {
+//store.campaign = response.campaign
+  console.log(response, "my response from editing the campaign")
+  $('#clicked-campaign').html(`
+    <h1>${response.campaign.title}</h1>
+    <h2>${response.campaign.description}</h2>
+    <button type="button" class="btn btn-primary" data-campaign-id=${response.campaign._id} id="edit-clicked-campaign-button">Edit</button>
+      <button id="delete-modal-clicked-campaign"  data-toggle="modal" data-target="#deleteModal"> Delete </button>
+      <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              <h2>Are you sure you want to delete <b>${response.campaign.title}</b> campaign?</h2>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">No! Don't Delete</button>
+              <button type="button" class="btn btn-primary" id="delete-clicked-campaign">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <hr>`)
+
+}
 
 module.exports = {
   createCampaignSuccess,
@@ -83,5 +112,6 @@ module.exports = {
   showCampaignPage,
   deleteCampaignSuccess,
   showApiFailureMessaging,
-  editCampaignSuccess
+  editCampaignSuccess,
+  showEditCampaignPage
 }

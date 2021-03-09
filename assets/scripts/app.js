@@ -6,6 +6,8 @@ const userEvents = require('./user/events')
 const campaignEvents = require('./campaign/events')
 const sessionEvents = require('./session/events')
 const store = require('./store')
+const campaignUi = require('./campaign/ui')
+const sessionUi = require('./session/ui')
 // use require without a reference to ensure a file is bundled
 // require('./example')
 
@@ -26,7 +28,7 @@ $(() => {
   $('.user-options').on('submit', '#change-password', userEvents.onChangePassword)
 
   // show and hide user forms
-  $('.user-signed-in').hide()
+  $('#user-signed-in-nav').hide()
   $('#change-password').hide()
   $('#sign-up').hide() // this will be shown on the sign up form button
   $('#sign-in').hide() // this will be shown on the sign in form button
@@ -40,10 +42,15 @@ $(() => {
   $('#clicked-campaign').on('click', '#delete-clicked-campaign', campaignEvents.onDeleteCampaign)
 
   // // Edit campaign and session
-  // $('#clicked-campaign').on('click', '#edit-clicked-campaign-button', () => {
-  //   $('#edit-clicked-campaign-form').show()
-  // })
-  // $('#clicked-campaign').on('click', '#edit-clicked-campaign', campaignEvents.onEditCampaign)
+
+  // to edit a campaign - we want to allow editing title and description.
+  // first use the edit button to bring up the form.. I want to default the
+  // previous campaign info from the stored campaign
+  $('#clicked-campaign').on('click', '#edit-clicked-campaign-button', () => {
+    campaignUi.showEditCampaignPage()
+  })
+
+  $('#clicked-campaign').on('submit', '#edit-clicked-campaign', campaignEvents.onEditCampaign)
   // $('#clicked-session').on('click', '#edit-clicked-campaign', sessionEvents.onEditSession)
 
 

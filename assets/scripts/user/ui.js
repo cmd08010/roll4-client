@@ -6,8 +6,10 @@ const signInSuccess = (response) => {
   $('#message').text(`Success! ${response.user.userName} is signed in.`)
   $('#sign-in').trigger('reset')
   $('#sign-up').trigger('reset')
-  $('.no-user').hide()
-  $('.user-signed-in').show()
+  $('#no-user-nav-bar').hide()
+  $('#user-signed-in-nav').show()
+  $('#about-us').prependTo($('#user-signed-in-nav')).removeClass('btn-info').addClass('btn-outline-primary')
+
   $('.campaigns').show()
 }
 
@@ -43,6 +45,9 @@ const signOutSuccess = () => {
   $('#message').html('')
   $('#sign-in').trigger('reset')
   $('#sign-up').trigger('reset')
+  $('#no-user-nav-bar').show()
+  $('#user-signed-in-nav').hide()
+  $('#about-us').prependTo($('#no-user-nav-bar')).addClass('btn-info').removeClass('btn-outline-primary')
 }
 
 const signOutFailure = () => {}

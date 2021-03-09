@@ -36,12 +36,12 @@ const onDeleteCampaign = (event) => {
 
 const onEditCampaign = (event) => {
   event.preventDefault()
+  console.log(event.target)
   const form = event.target
   const data = { campaign: getFormFields(form) }
-  const campaignId = $(event.target).data('campaign-id')
-  api.updateCampaign(campaignId, data)
-  .then(ui.editCampaignSuccess)
-  .catch(ui.showApiFailureMessaging)
+  api.updateCampaign(store.campaign._id, data)
+    .then(ui.editCampaignSuccess)
+    .catch(ui.showApiFailureMessaging)
 }
 
 module.exports = {
