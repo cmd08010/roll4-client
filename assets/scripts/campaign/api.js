@@ -33,6 +33,16 @@ const getOneCampaign = (id) => {
   })
 }
 
+const getLatestCampaign = () => {
+  return $.ajax({
+    method: 'GET',
+    url: `${config.apiUrl}/home`,
+    headers: {
+      Authorization: `Bearer ${store.user.token}`
+    }
+  })
+}
+
 const deleteCampaign = (id) => {
   return $.ajax({
     method: 'DELETE',
@@ -58,6 +68,7 @@ module.exports = {
   createCampaign,
   getAllCampaigns,
   getOneCampaign,
+  getLatestCampaign,
   deleteCampaign,
   updateCampaign
 }

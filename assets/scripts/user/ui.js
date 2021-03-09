@@ -1,16 +1,19 @@
 const store = require('../store')
+const api = require('./api')
+const campaignEvents = require('./../campaign/events')
 
 const signInSuccess = (response) => {
   console.log(response)
   store.user = response.user
-  $('#message').text(`Success! ${response.user.userName} is signed in.`)
+  $('#message').text(`Success! ${store.user.userName} is signed in.`).addClass('alert alert-success success')
   $('#sign-in').trigger('reset')
   $('#sign-up').trigger('reset')
   $('#no-user-nav-bar').hide()
+  $('.no-user').hide()
   $('#user-signed-in-nav').show()
   $('#about-us').prependTo($('#user-signed-in-nav')).removeClass('btn-info').addClass('btn-outline-primary')
-
   $('.campaigns').show()
+  campaignEvents.onShowLatestCampaign()
 }
 
 const signInFailure = (response) => {
@@ -29,6 +32,16 @@ const signUpSuccess = (response) => {
   $('.no-user').hide()
   $('.user-signed-in').show()
   $('.campaigns').show()
+}
+const showHome = () => {
+  $('#sign-in').trigger('reset')
+  $('#sign-up').trigger('reset')
+  $('#no-user-nav-bar').hide()
+  $('.no-user').hide()
+  $('#user-signed-in-nav').show()
+  $('#all-campaigns').hide()
+  $('.campaigns').show()
+  campaignEvents.onShowLatestCampaign()
 }
 
 const signUpFailure = (response) => {
@@ -66,6 +79,7 @@ module.exports = {
   signUpFailure,
   signOutSuccess,
   signOutFailure,
+  showHome,
   changePasswordSuccess,
   changePasswordFailure
 }

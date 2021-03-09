@@ -32,7 +32,11 @@ const onDeleteCampaign = (event) => {
     .catch(ui.showApiFailureMessaging)
 }
 
-
+const onShowLatestCampaign = (response) => {
+  api.getLatestCampaign()
+    .then(ui.showLatestCampaign)
+    .catch(ui.showApiFailureMessaging)
+}
 
 const onEditCampaign = (event) => {
   event.preventDefault()
@@ -49,5 +53,6 @@ module.exports = {
   onShowAllCampaigns,
   onDeleteCampaign,
   onShowCampaignPage,
+  onShowLatestCampaign,
   onEditCampaign
 }

@@ -16,6 +16,7 @@ $(() => {
 
   // user events
   $('#sign-in').on('submit', userEvents.onSignIn)
+    //$('#sign-in').on('submit', campaignEvents.onShowLatestCampaign)
   $('#sign-up').on('submit', userEvents.onSignUp)
   $('#sign-out').on('click', userEvents.onSignOut)
 
@@ -33,8 +34,12 @@ $(() => {
   $('#sign-up').hide() // this will be shown on the sign up form button
   $('#sign-in').hide() // this will be shown on the sign in form button
 
+  $('#dice').on('click', userEvents.onShowHome)
+
+
   // campaign event listeners
-  $('.campaigns').hide() // show in
+  $('#create-campaign-button').on('click', () => $('create-campaign').toggle())
+  $('#create-campaign').hide()
   $('#create-campaign').on('submit', campaignEvents.onCreateCampaign)
   $('#show-campaigns').on('click', campaignEvents.onShowAllCampaigns)
 

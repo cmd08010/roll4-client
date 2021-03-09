@@ -1,6 +1,7 @@
 const api = require('./api')
 const ui = require('./ui')
 const getFormFields = require('../../../lib/get-form-fields')
+const store = require('./../store')
 
 const onSignIn = (event) => {
   event.preventDefault()
@@ -9,6 +10,14 @@ const onSignIn = (event) => {
   api.signIn(data)
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)
+}
+
+const onShowHome = () => {
+  if (store.user) {
+    ui.showHome()
+  } else {
+
+  }
 }
 
 const onSignUp = (event) => {
@@ -48,5 +57,6 @@ module.exports = {
   onSignUp,
   onSignOut,
   onChangePassword,
+  onShowHome,
   onShowChangePasswordForm
 }

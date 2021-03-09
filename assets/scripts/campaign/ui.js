@@ -28,7 +28,7 @@ const showAllCampaignsSuccess = (response) => {
 
 const showCampaignPage = (response) => {
   store.campaign = response.campaign
-  $('#message').text('')
+  $('#message').html('')
   console.log(response, "my show campaign page suceess response")
 
   $('#all-campaigns').hide()
@@ -67,6 +67,7 @@ const showApiFailureMessaging = (response) => {
 }
 
 const showEditCampaignPage = (response) => {
+  $('#message').html('')
   $('#clicked-campaign').html(`
   <form id="edit-clicked-campaign">
     <h2>${store.campaign.title}</h2>
@@ -79,8 +80,30 @@ const showEditCampaignPage = (response) => {
   `)
 }
 
+const showLatestCampaign = (response) => {
+  console.log(response, "my response for the home page")
+  $('#message').html('').removeClass()
+  $('#clicked-campaign').html(`
+    <h1>${response.campaign.title}</h1>
+    <h2>${response.campaign.description}</h2>`)
+  if (response.sessions.length > 0) {
+    response.sessions.map(session => {
+      $('#clicked-session').append(`
+          <h4>${session.title}</h4>
+          <p>${session.text}</p>
+          `)
+    })
+} else {
+  $('.sessions').show()
+  $('#show-sessions').hide()
+}
+}
+
+
+
 const editCampaignSuccess = (response) => {
 //store.campaign = response.campaign
+$('#message').html('').removeClass()
   console.log(response, "my response from editing the campaign")
   $('#clicked-campaign').html(`
     <h1>${response.campaign.title}</h1>
@@ -102,7 +125,6 @@ const editCampaignSuccess = (response) => {
       </div>
       <hr>
       <hr>`)
-
 }
 
 module.exports = {
@@ -112,6 +134,7 @@ module.exports = {
   showCampaignPage,
   deleteCampaignSuccess,
   showApiFailureMessaging,
+  showLatestCampaign,
   editCampaignSuccess,
   showEditCampaignPage
 }
