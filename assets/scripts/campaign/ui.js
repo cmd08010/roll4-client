@@ -14,6 +14,7 @@ const createCampaignFailure = (response) => {
 
 const showAllCampaignsSuccess = (response) => {
   console.log(response)
+  //$('#all-campaigns').show()
   $('#all-campaigns').show()
   $('#clicked-campaign').html('')
   $('#all-campaigns').html(`${store.user.userName} has ${response.campaigns.length} campaigns going`)
@@ -71,9 +72,9 @@ const showEditCampaignPage = (response) => {
   $('#clicked-campaign').html(`
   <form id="edit-clicked-campaign">
     <h2>${store.campaign.title}</h2>
-    <input type='text' name='title' value=${store.campaign.title} required>
+    <input type='text' name='title' value="${store.campaign.title}" required>
     <br>
-    <input type='text' name='description' value=${store.campaign.description} required>
+    <input type='text' name='description' value="${store.campaign.description}" required>
     <br>
     <button class="btn btn-info">Submit Changes</button>
   </form>
@@ -81,28 +82,48 @@ const showEditCampaignPage = (response) => {
 }
 
 const showLatestCampaign = (response) => {
-  console.log(response, "my response for the home page")
+  console.log(response.sessions.length, "my response for the home page")
+  store.campaign = response.campaign
   $('#message').html('').removeClass()
   $('#clicked-campaign').html(`
-    <h1>${response.campaign.title}</h1>
-    <h2>${response.campaign.description}</h2>`)
+
+    <h1>Welcome Back ${store.user.userName}!</h1>
+    <h2>${response.campaign.title}</h2>
+    <h3>${response.campaign.description}</h3>
+    <button class="create-session-btn btn" >Add a Session</button>
+    <button type="button" class="btn btn-primary" data-campaign-id=${response.campaign._id} id="edit-clicked-campaign-button">Edit</button>
+    <button id="delete-modal-clicked-campaign"  data-toggle="modal" data-target="#deleteModal"> Delete </button>
+      <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              <h2>Are you sure you want to delete <b>${response.campaign.title}</b> campaign?</h2>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">No! Don't Delete</button>
+              <button type="button" class="btn btn-primary" id="delete-clicked-campaign">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <hr>`)
   if (response.sessions.length > 0) {
+    $('#create-session').hide()
+    console.log("should show my sessions here now")
     response.sessions.map(session => {
-      $('#clicked-session').append(`
-          <h4>${session.title}</h4>
-          <p>${session.text}</p>
-          `)
+      $('#all-sessions').append(`<hr> <h2><button class="session btn" data-session-id=${session._id}>${session.title}</button>: ${session.text}</h2>
+        <p>Started on: ${session.createdAt}</p>
+        `)
     })
 } else {
-  $('.sessions').show()
-  $('#show-sessions').hide()
 }
 }
 
 
 
 const editCampaignSuccess = (response) => {
-//store.campaign = response.campaign
+store.campaign = response.campaign
 $('#message').html('').removeClass()
   console.log(response, "my response from editing the campaign")
   $('#clicked-campaign').html(`

@@ -39,12 +39,10 @@ const onShowSessionPage = (event) => {
 const onEditSession = (event) => {
   event.preventDefault()
   const form = event.target
-  const data = { campaign: getFormFields(form) }
-  const campaignId = $(event.target).data('campaign-id')
-  api.updateCampaign(campaignId, data)
-  .then(ui.editCampaignSuccess)
+  const data = { session: getFormFields(form) }
+  api.updateSession(store.campaign._id, store.session._id, data)
+  .then(ui.editSessionSuccess)
   .catch(ui.showApiFailureMessaging)
-
 }
 
 module.exports = {

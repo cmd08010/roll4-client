@@ -16,7 +16,7 @@ $(() => {
 
   // user events
   $('#sign-in').on('submit', userEvents.onSignIn)
-    //$('#sign-in').on('submit', campaignEvents.onShowLatestCampaign)
+  //$('#sign-in').on('submit', campaignEvents.onShowLatestCampaign)
   $('#sign-up').on('submit', userEvents.onSignUp)
   $('#sign-out').on('click', userEvents.onSignOut)
 
@@ -24,6 +24,11 @@ $(() => {
   $('#show-signin').on('click', () => $('#sign-in').toggle())
   $('#show-signup').on('click', () => $('#sign-up').toggle())
 
+  if (!store.user) {
+    $('.user-signed-in').hide()
+  } else {
+    $('.user-signed-in').show()
+  }
   // show change password form and then enable event listener
   $('#change-password-button').on('click', userEvents.onShowChangePasswordForm)
   $('.user-options').on('submit', '#change-password', userEvents.onChangePassword)
@@ -36,9 +41,8 @@ $(() => {
 
   $('#dice').on('click', userEvents.onShowHome)
 
-
   // campaign event listeners
-  $('#create-campaign-button').on('click', () => $('create-campaign').toggle())
+  $('#create-campaign-button').on('click', () => $('#create-campaign').show())
   $('#create-campaign').hide()
   $('#create-campaign').on('submit', campaignEvents.onCreateCampaign)
   $('#show-campaigns').on('click', campaignEvents.onShowAllCampaigns)
@@ -64,10 +68,15 @@ $(() => {
 
   // sessions
   $('.sessions').hide()
+  $('#create-session-btn').on('click', () => $('create-session').show())
   $('#create-session').on('submit', sessionEvents.onCreateSession)
   $('#show-sessions').on('click', sessionEvents.onShowAllSessions)
   $('#all-sessions').on('click', '.session', sessionEvents.onShowSessionPage)
   $('#clicked-session').on('click', '#delete-clicked-session', sessionEvents.onDeleteSession)
+  $('#clicked-session').on('click', '#edit-clicked-session-button', () => {
+    sessionUi.showEditSessionPage()
+  })
+  $('#clicked-session').on('submit', '#edit-clicked-session', sessionEvents.onEditSession)
 
   // delete once complete
   $('#store').on('click', () => {

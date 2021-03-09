@@ -10,9 +10,10 @@ const signInSuccess = (response) => {
   $('#sign-up').trigger('reset')
   $('#no-user-nav-bar').hide()
   $('.no-user').hide()
+  $('.user-signed-in').show()
   $('#user-signed-in-nav').show()
+
   $('#about-us').prependTo($('#user-signed-in-nav')).removeClass('btn-info').addClass('btn-outline-primary')
-  $('.campaigns').show()
   campaignEvents.onShowLatestCampaign()
 }
 

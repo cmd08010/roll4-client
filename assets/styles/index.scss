@@ -1,8 +1,13 @@
 @import '~bootstrap/scss/bootstrap';
 @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1&display=swap');
 
 body{
   font-family: 'MedievalSharp', cursive;
+}
+
+.user-signed-in{
+font-family: 'Shippori Mincho B1', serif;
 }
 
 #home-link{
@@ -20,10 +25,32 @@ body{
 
 }
 
-.carousel-item{
-  width: 1250px;
-  height: 750px;
+input{
+  width: 500px;
+}
+
+#session-text{
+  height: 500px;
+  width: 500px;
+}
+
+.carousel-item .active {
+  width: 100%;
+  height: 100%;
   border-radius: 15px;
+  align-items: center;
+  margin: auto;
+}
+
+.carousel-control-prev .carousel-control-next {
+  width: 600px;
+  height: 500px;
+}
+
+.carousel{
+  border-radius: 15px;
+  align-items: center;
+  justify-content: center;
 }
 
 #description{
@@ -34,10 +61,7 @@ body{
   font-size: 1rem;
 }
 
-#session-text{
-  height: 100%;
-  width: 10rem;
-}
+
 
 #nav-bar{
   display: flex;
