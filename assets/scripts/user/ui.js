@@ -42,15 +42,22 @@ const signUpSuccess = (response) => {
   }
 }
 const showHome = () => {
-  $('#no-user-nav-bar').hide()
-  $('.no-user').hide()
-  $('#message').html('')
-  $('#user-signed-in-nav').show()
-  if (store.campaign) {
-    $('#all-campaigns').hide()
-    campaignEvents.onShowLatestCampaign()
+  if (store.user) {
+    $('#no-user-nav-bar').hide()
+    $('.no-user').hide()
+    $('#message').html('')
+    $('#user-signed-in-nav').show()
+    if (store.campaign) {
+      $('#all-campaigns').hide()
+      campaignEvents.onShowLatestCampaign()
+    } else {
+      $('#create-campaign').show()
+    }
   } else {
-    $('#create-campaign').show()
+    $('#no-user-nav-bar').show()
+    $('.no-user').show()
+    $('#user-signed-in-nav').hide()
+    $('.user-signed-in').hide()
   }
 }
 
