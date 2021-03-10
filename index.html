@@ -75,6 +75,16 @@
       </section>
       <section class="user-signed-in">
         <section id="welcome"></section>
+        <section class="user-options">
+          <form id='change-password'>
+            <h2>Change your password</h2>
+              <br>
+              <input name="passwords[old]" placeholder='Enter Old Password Here' type="password">
+              <br>
+              <input name="passwords[new]" placeholder='Enter New Password Here' type="password">
+              <button class="btn btn-info">Change Password</button>
+            </form>
+          </section>
         <form id="create-campaign">
               <h2>Create Campaign </h2>
               <input type='text' name='title' placeholder='Enter Title Here' maxlength="50" required>
@@ -97,16 +107,6 @@
               <br>
               <button class="btn btn-info">Submit</button>
             </form>
-        <section class="user-options">
-          <form id='change-password'>
-            <h2>Change your password</h2>
-              <br>
-              <input name="passwords[old]" placeholder='Enter Old Password Here' type="password">
-              <br>
-              <input name="passwords[new]" placeholder='Enter New Password Here' type="password">
-              <button class="btn btn-info">Change Password</button>
-            </form>
-          </section>
     </section>
     </body>
 </html>
