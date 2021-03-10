@@ -41,8 +41,8 @@ const onEditSession = (event) => {
   const form = event.target
   const data = { session: getFormFields(form) }
   api.updateSession(store.campaign._id, store.session._id, data)
-  .then(ui.editSessionSuccess)
-  .catch(ui.showApiFailureMessaging)
+    .then(ui.editSessionSuccess)
+    .catch(ui.showApiFailureMessaging)
 }
 
 module.exports = {
