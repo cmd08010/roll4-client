@@ -75,7 +75,7 @@ const signOutSuccess = () => {
 const signOutFailure = () => {}
 
 const changePasswordSuccess = (response) => {
-  $('#message').html('Success, youre password has been changed')
+  $('#message').html('Success, you password has been changed')
   $('#change-password').trigger('reset')
 }
 
