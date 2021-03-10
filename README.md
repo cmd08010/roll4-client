@@ -5,6 +5,8 @@ Welcome! This is the API for the Roll4Iinitiative application.
 Users can create an account and add new campaigns and entries for your campaigns to track their progress.
 
 ## Roll4 Api
+[link to API](https://github.com/cmd08010/roll4-api)
+
 ### Users
 
 
