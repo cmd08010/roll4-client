@@ -50,7 +50,7 @@ const showHome = () => {
 
 const signUpFailure = (response) => {
   console.log(response)
-  $('#message').text('Sorry, please select a new username or email address.')
+  $('#message').text('Sorry, please select a new username or email address.').addClass("failure")
   $('#sign-in').trigger('reset')
   $('#sign-up').trigger('reset')
 }
@@ -74,7 +74,9 @@ const changePasswordSuccess = (response) => {
   $('#change-password').trigger('reset')
 }
 
-const changePasswordFailure = (response) => {}
+const changePasswordFailure = (response) => {
+  $('#message').html('Your password has NOT been changed, Please try again.').addClass("failure")
+}
 
 module.exports = {
   signInSuccess,
