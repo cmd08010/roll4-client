@@ -41,10 +41,10 @@ I wanted to create an application that could help me keep track of Dungeons and 
 
 
 ### Wireframes
-![wireframe](../roll4-client/public/images/wf_home.png)
-![wireframe](../roll4-client/public/images/wf_signin.png)
-![wireframe](../roll4-client/public/images/wf_campaign.png)
-![wireframe](../roll4-client/public/images/wf_session.png)
+![wireframe](./public/images/wf_home.png)
+![wireframe](./public/images/wf_signin.png)
+![wireframe](./public/images/wf_campaign.png)
+![wireframe](./public/images/wf_session.png)
 
 ## Unsolved Problems
 
