@@ -61,7 +61,7 @@ const signUpFailure = (response) => {
 }
 
 const signOutSuccess = () => {
-  store.user = {}
+  delete store.user
   $('.no-user').show()
   $('.user-signed-in').hide()
   $('#message').html('')
