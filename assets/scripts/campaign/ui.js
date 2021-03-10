@@ -82,7 +82,7 @@ const showCampaignPage = (response) => {
 }
 
 const showLatestCampaign = (response) => {
-  if (response) {
+  if (response.campaign) {
     store.campaign = response.campaign
     $('#message').html('').removeClass()
     $('#show-sessions').hide()
