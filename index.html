@@ -12,7 +12,7 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1><a href="/" id="home-link">Roll 4 Initiative</a> <img src="public/images/dice.png" id="dice" alt="dice"/></h1>
+      <div id="page-title"><h1>Roll 4 Initiative </h1><a href=# id="home-link"><img src="public/images/dice.png" id="dice" alt="dice"/></a></div>
       <hr>
       <nav id="nav-bar">
         <section id="no-user-nav-bar">
@@ -22,16 +22,11 @@
         </section>
         <section id="user-signed-in-nav">
           <button id="show-campaigns" class="btn btn-outline-primary">Show Campaigns</button>
-        <button id="create-campaign-button" class="btn btn-outline-primary">Create Campaigns</button>
-
+          <button id="create-campaign-button" class="btn btn-outline-primary">Create a Campaign</button>
           <button id="change-password-button" class="btn btn-outline-primary">Change Password</button>
           <button id="sign-out" class="btn btn-outline-primary">Sign Out</button>
-      </section>
-    </nav>
-        <hr>
-      <section id="store">
-        <button class="btn btn-dark">Store</button>
-      </section>
+        </section>
+      </nav>
       <hr>
       <section id="message"></section>
       <section class="no-user">
@@ -69,39 +64,39 @@
           <h2>Sign up </h2>
           <input type='text' name='credentials[userName]' placeholder='Enter UserName Here' required>
           <br>
-            <input type='email' name='credentials[email]' placeholder='Enter Email Here' required>
-            <br>
-            <input type='password' name='credentials[password]' placeholder='Enter Password Here' required>
-            <br>
-            <input type='password' name='credentials[password_confirmation]' placeholder='Confirm Password Here' required>
-            <br>
-            <button class="btn btn-info">Sign up</button>
+          <input type='email' name='credentials[email]' placeholder='Enter Email Here' required>
+          <br>
+          <input type='password' name='credentials[password]' placeholder='Enter Password Here' required>
+          <br>
+          <input type='password' name='credentials[password_confirmation]' placeholder='Confirm Password Here' required>
+          <br>
+          <button class="btn btn-info">Sign up</button>
         </form>
       </section>
       <section class="user-signed-in">
-        <form id="create-campaign">
-          <h2>Create Campaign </h2>
-          <input type='text' name='title' placeholder='Enter Title Here' required>
-          <br>
-          <input type='text' name='description' placeholder='Enter Description Here' id="description" required>
-          <br>
-          <button class="btn btn-info">Submit </button>
-        </form>
-        <button id="show-sessions">Show Sessions</button>
-        <section id="session"></section>
+        <section id="welcome"></section>
         <section id="clicked-campaign"></section>
+        <section id="clicked-session"></section>
+        <div id="all-campaigns"></div>
+        <div id="all-sessions">
+          <div class="each-session"></div>
+        </div>
         <form id="create-session">
-              <h3>Create Session </h3>
-              <input type='text' name='title' placeholder='Enter Title Here' required>
+              <h3>Add a Session! </h3>
+              <input type='text' name='title' placeholder='Enter Title Here' maxlength="50" required>
               <br>
-              <input type='text' name='text' placeholder='Enter Description Here' id="session-text" required>
+              <input type='text' name='text' placeholder='Enter Session Here' id="session-text" required>
               <br>
               <button class="btn btn-info">Submit</button>
-          </form>
-        <section id="clicked-session"> </section>
-        <div id="all-campaigns"></div>
-        <div id="all-sessions"></div>
-        <hr>
+            </form>
+        <form id="create-campaign">
+              <h2>Create Campaign </h2>
+              <input type='text' name='title' placeholder='Enter Title Here' maxlength="50" required>
+              <br>
+              <input type='text' name='description' placeholder='Enter Description Here' id="description" maxlength="125"  required>
+              <br>
+              <button class="btn btn-info">Submit </button>
+            </form>
         <section class="user-options">
           <form id='change-password'>
             <h2>Change your password</h2>
@@ -112,10 +107,6 @@
               <button class="btn btn-info">Change Password</button>
             </form>
           </section>
-      <hr>
     </section>
-
-
-<hr>
     </body>
 </html>

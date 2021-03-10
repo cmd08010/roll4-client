@@ -2,71 +2,143 @@
 @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1&display=swap');
 
-body{
+$scroll :url('https://media.istockphoto.com/photos/vintage-brown-paper-background-with-dark-border-picture-id122710727?k=6&m=122710727&s=612x612&w=0&h=vOrxCaW2CRyivfnT7_Qzzbq9_OLVH4NE4hIU51p4C7Y=');
+
+body {
   font-family: 'MedievalSharp', cursive;
+  overflow: scroll;
 }
 
-.user-signed-in{
-font-family: 'Shippori Mincho B1', serif;
+.campaign {
+  font-size: 50px;
+  padding: 0;
+  color: inherit;
 }
 
-#home-link{
-  color: black;
-  text-decoration: none;
-
+.carousel-item {
+  border-radius: 15px;
+  align-items: center;
+  max-width: 75%;
+  max-height: 75%;
 }
 
-#dice{
-  width: 6%;
-  height: 6%;
+.carousel-item .active{
+  border-radius: 15px;
+  align-items: center;
 }
 
-#create-campaign{
-
+.carousel {
+  margin: 30px 30px 30px 30px;
 }
 
-input{
-  width: 500px;
+#clicked-session{
+  background-image: $scroll;
+  background-size: auto;
 }
 
-#session-text{
-  height: 500px;
-  width: 500px;
-}
+#create-campaign {}
 
-.carousel-item .active {
+#description {}
+
+#dice {
   width: 100%;
   height: 100%;
-  border-radius: 15px;
-  align-items: center;
-  margin: auto;
 }
 
-.carousel-control-prev .carousel-control-next {
-  width: 600px;
+.each-session {
+  background-image: $scroll;
+}
+
+.failure {
+  font-size: 2rem;
+  color: red;
+}
+
+#home-link {
+  height: 56.25px;
+  width: 56.25px;
+}
+
+h1 {
+  margin: 0;
+}
+
+img {
+  width: 700px;
   height: 500px;
-}
-
-.carousel{
   border-radius: 15px;
-  align-items: center;
-  justify-content: center;
+  object-fit: cover;
 }
 
-#description{
+input {
+  width: 500px;
+  margin: 5px 0px 15px 0px;
+}
+
+#message{
+  text-align: center;
+  margin: 50px 50px 50px 50px;
 
 }
 
-.success{
-  font-size: 1rem;
-}
-
-
-
-#nav-bar{
+#nav-bar {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: center;
   flex-direction: row;
   position: relative;
   top: 50%;
 }
+
+.no-user {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  flex-direction: column-reverse;
+}
+
+#page-title {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+
+#session-text {
+  height: 500px;
+  width: 500px;
+}
+
+.session {
+  color: black;
+  font-size: 2rem;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+}
+
+.success {
+  align-items: flex-start;
+  font-size: 1rem;
+}
+
+.title {
+  font-size: 3rem;
+
+}
+
+  .user-signed-in {
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Shippori Mincho B1', serif;
+    justify-content: center;
+  }
+
+  #welcome {
+    font-family: 'MedievalSharp', cursive;
+    font-size: 3rem;
+    margin: 50px;
+  }

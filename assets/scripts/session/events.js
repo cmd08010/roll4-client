@@ -26,7 +26,7 @@ const onDeleteSession = (event) => {
   api.deleteSession(store.campaign._id, store.session._id)
     .then(ui.deleteSessionSuccess)
     .catch(ui.showApiFailureMessaging)
-  }
+}
 
 const onShowSessionPage = (event) => {
   const sessionId = $(event.target).data('session-id')
