@@ -48,4 +48,4 @@ I wanted to create an application that could help me keep track of Dungeons and 
 
 ## Unsolved Problems
 
-I would like the future versions to have a cleaner UI and UX. I also want to ensure it is mobile friendly. I will also be adding an additional forgot password feature and the ability to add members to a campaign so you can share with your friends!
+I would like the future versions to have a cleaner UI and UX. I also want to ensure it is mobile friendly. I will also be adding an additional forgot password feature and the ability to add members to a campaign so you can share with your friends! I also want to add a notes page to include notes about the campaign. I also want to add preloadable campaigns for users to use.
