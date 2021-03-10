@@ -20,7 +20,6 @@ const onShowAllCampaigns = (event) => {
 
 const onShowCampaignPage = (event) => {
   const campaignId = $(event.target).data('campaign-id')
-  console.log(campaignId)
   api.getOneCampaign(campaignId)
     .then(ui.showCampaignPage)
     .catch(ui.showApiFailureMessaging)
@@ -40,7 +39,6 @@ const onShowLatestCampaign = (response) => {
 
 const onEditCampaign = (event) => {
   event.preventDefault()
-  console.log(event.target)
   const form = event.target
   const data = { campaign: getFormFields(form) }
   api.updateCampaign(store.campaign._id, data)

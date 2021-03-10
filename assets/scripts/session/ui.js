@@ -86,8 +86,7 @@ const deleteSessionSuccess = () => {
 }
 
 const showApiFailureMessaging = () => {
-  $('#message').text('API call failed! Try again!').addClass("failure")
-  console.log(response, "the api call failed - here is my UI")
+  $('#message').text('Your request failed! Try again!').addClass("failure")
 }
 
 const showEditSessionPage = () => {
@@ -97,7 +96,7 @@ const showEditSessionPage = () => {
     <h2>${store.session.title}</h2>
     <input type='text' name='title' value="${store.session.title}" required>
     <br>
-    <input type='text' name='text' value="${store.session.text}" required>
+    <input type='text' name='text' id="session-text" value="${store.session.text}" required>
     <br>
     <button class="btn btn-info">Submit Changes</button>
   </form>
@@ -105,10 +104,8 @@ const showEditSessionPage = () => {
 }
 
 const editSessionSuccess = (response) => {
-console.log(response, "My response", store.session, "my stored session before")
 store.session = response.campaign.sessions[response.campaign.sessions.length - 1]
 const session = response.campaign.sessions[response.campaign.sessions.length - 1]
-console.log(session, "this needs to be the same as my session response")
 $('#message').html('').removeClass()
   $('#clicked-session').html(sessionPageHtml(session))
 }

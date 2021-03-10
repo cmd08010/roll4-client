@@ -12,7 +12,7 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <div id="page-title"><h1>Roll 4 Initiative </h1><a href=# id="home-link"><img src="public/images/dice.png" id="dice" alt="dice"/></a></div>
+      <div id="page-title"><h1>Roll 4 Initiative </h1> <button type="button" class="btn btn-link" id="dice"><img src="public/images/dice.png" id="dice-img" alt="dice"/></button></div>
       <hr>
       <nav id="nav-bar">
         <section id="no-user-nav-bar">
@@ -75,6 +75,14 @@
       </section>
       <section class="user-signed-in">
         <section id="welcome"></section>
+        <form id="create-campaign">
+              <h2>Create Campaign </h2>
+              <input type='text' name='title' placeholder='Enter Title Here' maxlength="50" required>
+              <br>
+              <input type='text' name='description' placeholder='Enter Description Here' id="description" maxlength="125"  required>
+              <br>
+              <button class="btn btn-info">Submit </button>
+            </form>
         <section id="clicked-campaign"></section>
         <section id="clicked-session"></section>
         <div id="all-campaigns"></div>
@@ -88,14 +96,6 @@
               <input type='text' name='text' placeholder='Enter Session Here' id="session-text" required>
               <br>
               <button class="btn btn-info">Submit</button>
-            </form>
-        <form id="create-campaign">
-              <h2>Create Campaign </h2>
-              <input type='text' name='title' placeholder='Enter Title Here' maxlength="50" required>
-              <br>
-              <input type='text' name='description' placeholder='Enter Description Here' id="description" maxlength="125"  required>
-              <br>
-              <button class="btn btn-info">Submit </button>
             </form>
         <section class="user-options">
           <form id='change-password'>

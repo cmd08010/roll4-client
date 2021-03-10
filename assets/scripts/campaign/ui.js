@@ -6,15 +6,15 @@ const createCampaignSuccess = (response) => {
   store.campaign = response.campaign
   $('#message').text(`${response.campaign.title} campaign was created`)
   $('#create-campaign').trigger('reset')
+  showLatestCampaign(response)
 }
 
 const createCampaignFailure = (response) => {
-  console.log(response, "my campaign create fail response")
   $('#create-campaign').trigger('reset')
 }
 
 const showAllCampaignsSuccess = (response) => {
-  console.log(response)
+
   $('#all-campaigns').show()
   $('#clicked-campaign').html('')
   $('#clicked-session').html('')
@@ -34,7 +34,8 @@ const showAllCampaignsSuccess = (response) => {
 
 const showCampaignPage = (response) => {
   store.campaign = response.campaign
-  console.log(response)
+  $('#create-campaign').hide('')
+  $('#create-session').hide('')
   $('#message').html('')
   $('#clicked-campaign').show()
   $('#all-campaigns').hide()
@@ -75,6 +76,8 @@ const showCampaignPage = (response) => {
     `)
   if (response.sessions.length > 0) {
     sessionUi.showAllSessionsSuccess(response.campaign)
+  } else {
+    $('')
   }
 }
 
@@ -92,8 +95,9 @@ const showLatestCampaign = (response) => {
 }
 
 const deleteCampaignSuccess = (response) => {
-  $('#clicked-campaign').html('Campaign Deleted!')
+  $('#clicked-campaign').html('Campaign Deleted! Click show all campaigns to view your other campaigns')
   $('.modal-backdrop').remove()
+  $('#all-sessions').html('')
 }
 
 const showEditCampaignPage = (response) => {
@@ -113,14 +117,12 @@ const showEditCampaignPage = (response) => {
 const editCampaignSuccess = (response) => {
 store.campaign = response.campaign
 $('#message').html('').removeClass()
-  console.log(response, "my response from editing the campaign")
   showCampaignPage(response)
 }
 
 
 const showApiFailureMessaging = (response) => {
-  $('#message').text('API call failed!')
-  console.log(response, "the api call failed - here is my UI")
+  $('#message').text('Your request failed! Try again!').addClass("failure")
 }
 
 module.exports = {

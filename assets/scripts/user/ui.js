@@ -20,7 +20,6 @@ const signInSuccess = (response) => {
 }
 
 const signInFailure = (response) => {
-  console.log(response)
   $('#message').text('Unable to sign in. Please sign up or try again').addClass("failure")
   $('#sign-in').trigger('reset')
   $('#sign-up').trigger('reset')
@@ -28,12 +27,19 @@ const signInFailure = (response) => {
 
 const signUpSuccess = (response) => {
   store.user = response.user
-  console.log(response)
   $('#message').text(`Success! ${response.user.userName} is signed up and signed in'`)
   $('#sign-in').trigger('reset')
   $('#sign-up').trigger('reset')
+  $('#no-user-nav-bar').hide()
   $('.no-user').hide()
   $('.user-signed-in').show()
+  $('#user-signed-in-nav').show()
+  campaignEvents.onShowLatestCampaign()
+  if (store.campaign) {
+    $('#welcome').text(`Welcome ${store.user.userName.toUpperCase()}! Check out your latest campaign!`)
+  } else {
+    $('#welcome').text(`Welcome ${store.user.userName.toUpperCase()}! Create a campaign to get started!`)
+  }
 }
 const showHome = () => {
   $('#no-user-nav-bar').hide()
@@ -49,7 +55,6 @@ const showHome = () => {
 }
 
 const signUpFailure = (response) => {
-  console.log(response)
   $('#message').text('Sorry, please select a new username or email address.').addClass("failure")
   $('#sign-in').trigger('reset')
   $('#sign-up').trigger('reset')
