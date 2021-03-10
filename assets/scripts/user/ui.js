@@ -50,7 +50,7 @@ const showHome = () => {
 
 const signUpFailure = (response) => {
   console.log(response)
-  $('#message').text('Failure')
+  $('#message').text('Sorry, please select a new username or email address.')
   $('#sign-in').trigger('reset')
   $('#sign-up').trigger('reset')
 }
