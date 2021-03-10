@@ -73,6 +73,8 @@ img {
 input {
   width: 500px;
   margin: 5px 0px 15px 0px;
+    word-wrap: break-word;
+    word-break: break-all;
 }
 
 #message{
@@ -112,11 +114,6 @@ input {
 
 }
 
-textarea {
-overflow: auto;
-word-wrap: normal;
-
-}
 
 .session {
   color: black;
