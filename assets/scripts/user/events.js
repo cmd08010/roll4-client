@@ -13,9 +13,7 @@ const onSignIn = (event) => {
 }
 
 const onShowHome = () => {
-  if (store.user) {
-    ui.showHome()
-  }
+  ui.showHome()
 }
 
 const onSignUp = (event) => {
