@@ -37,7 +37,7 @@ const onSignOut = (event) => {
 }
 
 const onShowChangePasswordForm = (event) => {
-  $('#change-password').show()
+  $('#change-password').toggle()
 }
 
 const onChangePassword = (event) => {
