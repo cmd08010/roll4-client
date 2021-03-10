@@ -67,6 +67,8 @@ const signOutSuccess = () => {
   $('#message').html('')
   $('#sign-in').trigger('reset')
   $('#sign-up').trigger('reset')
+  $('#sign-in').hide()
+  $('#sign-up').hide()
   $('#no-user-nav-bar').show()
   $('#user-signed-in-nav').hide()
   $('#about-us').prependTo($('#no-user-nav-bar')).addClass('btn-info').removeClass('btn-outline-primary')

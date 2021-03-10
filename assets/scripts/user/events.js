@@ -41,7 +41,6 @@ const onShowChangePasswordForm = (event) => {
 }
 
 const onChangePassword = (event) => {
-  console.log("my event listeners working")
   event.preventDefault()
   const form = event.target
   const data = getFormFields(form)
