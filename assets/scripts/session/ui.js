@@ -96,7 +96,7 @@ const showEditSessionPage = () => {
     <h2>${store.session.title}</h2>
     <input type='text' name='title' value="${store.session.title}" required>
     <br>
-    <textarea name='text' placeholder='Enter Session Here' id="session-text" value="${store.session.text}"></textarea>
+    <textarea name='text' placeholder='Enter Session Here' id="session-text">${store.session.text}</textarea>
     <br>
     <button class="btn btn-info">Submit Changes</button>
   </form>
