@@ -47,11 +47,32 @@ const onChangePassword = (event) => {
     .catch(ui.changePasswordFailure)
 }
 
+const onShowAboutUs = () => {
+  $('#message').toggle()
+  $('#message').html(`<h1>Welcome!</h1>
+    <br>This is the Roll4Iinitiative application.
+    <br> Get started by creating an account by selecting the sign up button.
+  You can create an account and add new campaigns and entries for your campaigns to track their progress.
+  <br>
+  Stay tuned for more updates!
+  <br>
+  Check out our API!
+  <br>
+  <a href="https://github.com/cmd08010/roll4-api">Roll4-API</a>
+  `).addClass('about-us')
+  if (store.user) {
+    $(".user-signed-in").toggle()
+  } else {
+    $('.no-user').toggle()
+  }
+}
+
 module.exports = {
   onSignIn,
   onSignUp,
   onSignOut,
   onChangePassword,
   onShowHome,
-  onShowChangePasswordForm
+  onShowChangePasswordForm,
+  onShowAboutUs
 }

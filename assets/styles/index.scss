@@ -2,7 +2,23 @@
 @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1&display=swap');
 
-$scroll :url('https://media.istockphoto.com/photos/vintage-brown-paper-background-with-dark-border-picture-id122710727?k=6&m=122710727&s=612x612&w=0&h=vOrxCaW2CRyivfnT7_Qzzbq9_OLVH4NE4hIU51p4C7Y=');
+$scroll: url('https://cdn.hipwallpaper.com/i/28/62/HXybm2.jpg');
+$fancy_title: url('https://img1.pnghut.com/11/9/11/t65FTT8Ax3/brown-picture-frame-texture-text-paper.jpg');
+
+.about-us {
+    font-size: 1.5rem;
+}
+
+#all-sessions-title {
+  background-image: $fancy_title;
+  background-position: center;
+  background-size: cover;
+  border-radius: 15px;
+  font-family: 'MedievalSharp', cursive;
+  object-fit: fill;
+  font-size: 25px;
+  margin-bottom: 10px;
+}
 
 body {
   font-family: 'MedievalSharp', cursive;
@@ -10,7 +26,7 @@ body {
 }
 
 .campaign {
-  font-size: 50px;
+  font-size: 25px;
   padding: 0;
   color: inherit;
 }
@@ -27,26 +43,40 @@ body {
   align-items: center;
 }
 
+
 .carousel {
   margin: 30px 30px 30px 30px;
 }
 
-#clicked-session{
+#clicked-session {
   background-image: $scroll;
   background-size: auto;
 }
 
-#create-campaign {}
+#clicked-campaign {
+  font-family: 'MedievalSharp', cursive;
+  color: #2a150d;
+  background-size: cover;
+  border-radius: 15px;
+}
+
+.col-md-8 {
+  border-radius: 15px;
+}
 
 #description {}
 
 #dice-img {
-  width: 100px;
-  height: 100px;
+  width: 70px;
+  height: 70px;
 }
 
 .each-session {
   background-image: $scroll;
+  margin-bottom: 10px;
+  object-fit: cover;
+  background-size: cover;
+  border-radius: 15px;
 }
 
 .failure {
@@ -102,9 +132,9 @@ input {
 }
 
 #page-title {
+  align-items: flex-end;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
 }
 
 
@@ -129,8 +159,7 @@ input {
 }
 
 .title {
-  font-size: 3rem;
-
+  font-size: 2rem;
 }
 
   .user-signed-in {
@@ -144,6 +173,13 @@ input {
 
   #welcome {
     font-family: 'MedievalSharp', cursive;
-    font-size: 3rem;
+    font-size: 2rem;
     margin: 50px;
+  }
+
+
+  @media only screen and (max-width: 769px) {
+     #page-title{
+        width: 100%;
+     }
   }

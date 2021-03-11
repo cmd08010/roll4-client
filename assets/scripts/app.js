@@ -22,8 +22,17 @@ $(() => {
   // show sign up and sign in forms
   $('#sign-in').hide()
   $('#sign-up').hide()
-  $('#show-signin').on('click', () => $('#sign-in').toggle())
-  $('#show-signup').on('click', () => $('#sign-up').toggle())
+
+  $('#show-signin').on('click', () => {
+    $('#sign-in').toggle()
+    $('#message').hide()
+    if ($('.no-user').is(':hidden')) { $('.no-user').show() }
+  })
+  $('#show-signup').on('click', () => {
+    $('#sign-up').toggle()
+    $('#message').hide()
+    if ($('.no-user').is(':hidden')) { $('.no-user').show() }
+  })
 
   if (!store.user) {
     $('.user-signed-in').hide()
@@ -37,6 +46,9 @@ $(() => {
   // show and hide user forms
   $('#user-signed-in-nav').hide()
   $('#change-password').hide()
+
+  $('#about-us').on('click', userEvents.onShowAboutUs)
+  $('#message').hide()
 
 
   $('#dice').on('click', userEvents.onShowHome)
@@ -61,7 +73,10 @@ $(() => {
   $('#clicked-session').on('click', '.campaign', campaignEvents.onShowCampaignPage)
 
   // sessions
-  $('#clicked-campaign').on('click', '#create-session-btn', () => $('#create-session').toggle())
+  $('#clicked-campaign').on('click', '#create-session-btn', () => {
+    $('#create-session').toggle()
+    $('#all-sessions').toggle()
+  })
   $('#create-session').on('submit', sessionEvents.onCreateSession)
   $('#all-sessions').on('click', '.session', sessionEvents.onShowSessionPage)
   $('#clicked-session').on('click', '#delete-clicked-session', sessionEvents.onDeleteSession)

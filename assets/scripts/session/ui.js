@@ -19,23 +19,25 @@ const createSessionSuccess = (response) => {
 const createSessionFailure = () => {}
 
 const showAllSessionsSuccess = (response) => {
+  $('#message').text('')
   $('#all-sessions').show()
+  $('#all-campaigns').hide()
   $('#clicked-session').html('')
-  $('#all-sessions').html(`${store.user.userName} has ${response.sessions.length} sessions for ${store.campaign.title} campaign!
-    <div class="each-session"></div>`)
+  $('#all-sessions').html(`<div id="all-sessions-title">${store.user.userName.toUpperCase()} has ${response.sessions.length} sessions for the ${store.campaign.title} campaign!</div>`)
   $('.each-session').html('')
   response.sessions.map(session => {
     const date = moment(session.createdAt).format("MM DD YYYY")
-    $('.each-session').append(`<h1><button class="session btn btn-link" data-session-id=${session._id}>${session.title}</button></h1>
+    $('#all-sessions').append(`<div class="each-session"><h1><button class="session btn btn-link" data-session-id=${session._id}>${session.title}</button></h1>
     <p>Latest Session was on: ${date} </p>
     <h2>Session Notes:</h2>
     <br><h4>${session.text}</h4>
+    </div>
     `)
   })
 }
 
 const sessionPageHtml = (session) => {
-  return `<h1><b><button class="campaign btn btn-link" data-campaign-id=${store.campaign._id}>${store.campaign.title}</button></b> Campaign</h1>
+  return `<h6><button class="campaign btn btn-link btn-sm" data-campaign-id=${store.campaign._id}>${store.campaign.title} Campaign</button></h6>
 <div class="title">${session.title}
 <button type="button" class="btn btn-link" data-session-id=${session._id} id="edit-clicked-session-button">
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
@@ -50,7 +52,7 @@ const sessionPageHtml = (session) => {
       </svg>
   </button>
   </div>
-  <h2>${session.text}</h2>
+  <h5>${session.text}</h5>
   <div class="modal fade" id="deleteSessionModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -76,11 +78,14 @@ const showSessionPage = (response) => {
   $('#create-campaign').hide()
   $('#clicked-campaign').hide()
   $('#all-sessions').hide()
+  $('#all-campaigns').hide()
   $('#clicked-session').html(sessionPageHtml(response.session))
 }
 
 const deleteSessionSuccess = () => {
   $('#clicked-session').html('Session Deleted!')
+  $('#message').text('')
+  $('#welcome').text('')
   $('#each-session').show()
   $('.modal-backdrop').remove()
 }

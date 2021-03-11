@@ -20,6 +20,7 @@ const signInSuccess = (response) => {
 }
 
 const signInFailure = (response) => {
+  $('#message').show()
   $('#message').text('Unable to sign in. Please sign up or try again').addClass("failure")
   $('#sign-in').trigger('reset')
   $('#sign-up').trigger('reset')
