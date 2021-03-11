@@ -54,7 +54,11 @@ $(() => {
   $('#dice').on('click', userEvents.onShowHome)
 
   // campaign event listeners
-  $('#create-campaign-button').on('click', () => $('#create-campaign').toggle())
+  $('#create-campaign-button').on('click', () => {
+    $('#create-campaign').toggle()
+    $('#all-sessions').toggle()
+    $('#all-campaigns').toggle()
+})
   $('#create-campaign').hide()
   $('#create-session').hide()
   $('#create-campaign').on('submit', campaignEvents.onCreateCampaign)

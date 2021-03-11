@@ -36,6 +36,8 @@ const onSignOut = (event) => {
 
 const onShowChangePasswordForm = (event) => {
   $('#change-password').toggle()
+  $('#all-sessions').toggle()
+  $('#all-campaigns').toggle()
 }
 
 const onChangePassword = (event) => {
