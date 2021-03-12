@@ -5,8 +5,10 @@
 $scroll: url('https://cdn.hipwallpaper.com/i/28/62/HXybm2.jpg');
 $fancy_title: url('https://img1.pnghut.com/11/9/11/t65FTT8Ax3/brown-picture-frame-texture-text-paper.jpg');
 
-.about-us {
+#about-us-message {
     font-size: 1.5rem;
+    text-align: center;
+    margin: 50px 50px 50px 50px;
 }
 
 #all-sessions-title {
@@ -25,10 +27,8 @@ body {
   overflow: scroll;
 }
 
-.campaign {
+.body-signed-in {
   font-size: 25px;
-  padding: 0;
-  color: inherit;
 }
 
 .carousel-item {
@@ -108,9 +108,11 @@ input {
 }
 
 #message{
-  text-align: center;
-  margin: 50px 50px 50px 50px;
-
+  text-align: left;
+  font-family: 'MedievalSharp', cursive;
+  font-size: 1rem;
+  margin: 25px;
+  color: black;
 }
 
 #nav-bar {
@@ -171,11 +173,6 @@ input {
     align-content: center;
   }
 
-  #welcome {
-    font-family: 'MedievalSharp', cursive;
-    font-size: 2rem;
-    margin: 50px;
-  }
 
 
   @media only screen and (max-width: 769px) {

@@ -1,10 +1,13 @@
 const store = require('../store')
 const moment = require('moment')
+const utils = require('../utils')
 
 const createSessionSuccess = (response) => {
   store.session = response.session
-  $('#message').text(`${response.session.title} session was created`)
-  $('#create-session').hide()
+  utils.clearForms()
+  utils.showUserView()
+  utils.resetMessaging()
+  $('#all-campaigns').hide()
   $('#all-sessions').show()
   $('#all-sessions').html('<div class="each-session"></div>')
   const date = moment(response.session.createdAt).format("MM DD YYYY")
@@ -13,13 +16,17 @@ const createSessionSuccess = (response) => {
   <h2>Session Notes:</h2>
   <br><h4>${response.session.text}</h4>
   `)
-  $('#create-session').trigger('reset')
 }
 
-const createSessionFailure = () => {}
+const createSessionFailure = () => {
+  $('#message').text('Create Session Failed. Try again!').addClass('failure')
+  $('.user-signed-in').show()
+  $('#all-campaigns').hide()
+  $('#all-sessions').show()
+}
 
 const showAllSessionsSuccess = (response) => {
-  $('#message').text('')
+  $('.user-signed-in').show()
   $('#all-sessions').show()
   $('#all-campaigns').hide()
   $('#clicked-session').html('')
@@ -73,10 +80,10 @@ const sessionPageHtml = (session) => {
 const showSessionPage = (response) => {
   store.session = response.session
   $('#message').text('')
-  $('#welcome').text('')
   $('#create-session').hide()
   $('#create-campaign').hide()
   $('#clicked-campaign').hide()
+  $('.user-signed-in').show()
   $('#all-sessions').hide()
   $('#all-campaigns').hide()
   $('#clicked-session').html(sessionPageHtml(response.session))
@@ -84,6 +91,7 @@ const showSessionPage = (response) => {
 
 const deleteSessionSuccess = () => {
   $('#clicked-session').html('Session Deleted!')
+  $('.user-signed-in').show()
   $('#message').text('')
   $('#welcome').text('')
   $('#each-session').show()

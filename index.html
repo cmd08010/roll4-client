@@ -13,7 +13,9 @@
 </head>
 <body>
   <main class="container">
-    <div id="page-title"><h1>Roll 4 Initiative </h1> <button type="button" class="btn btn-link" id="dice"><img src="public/images/dice.png" id="dice-img" alt="dice"/></button></div>
+    <div id="page-title"><h1>Roll 4 Initiative </h1>
+       <button type="button" class="btn btn-link" id="dice"><img src="public/images/dice.png" id="dice-img" alt="dice"/></button>
+    </div>
     <hr>
     <nav id="nav-bar">
       <section id="no-user-nav-bar">
@@ -30,6 +32,18 @@
     </nav>
     <hr>
     <section id="message"></section>
+    <section id="about-us-message">
+      <h1>Welcome!</h1>
+      <br>This is the Roll4Iinitiative application.
+      <br> Get started by creating an account by selecting the sign up button.
+      You can create an account and add new campaigns and entries for your campaigns to track their progress.
+      <br>
+      Stay tuned for more updates!
+      <br>
+      Check out our API!
+      <br>
+      <a href="https://github.com/cmd08010/roll4-api"> Roll4-API </a>
+    </section>
     <section class="no-user">
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
@@ -74,15 +88,10 @@
         <button class="btn btn-info">Sign up</button>
       </form>
     </section>
-
     <div class="row text-center py-4">
       <section class="user-signed-in">
-        <div class="col-12">
-          <section id="welcome"></section>
-        </div>
-        <div class="container">
-          <section class="user-options">
-            <form id='change-password'>
+        <section class="user-options">
+          <form id='change-password'>
               <h2>Change your password</h2>
               <br>
               <input name="passwords[old]" placeholder='Enter Old Password Here' type="password">
@@ -90,21 +99,22 @@
               <input name="passwords[new]" placeholder='Enter New Password Here' type="password">
               <button class="btn btn-info">Change Password</button>
             </form>
-          </section>
           <form id="create-campaign">
-            <h2>Create Campaign </h2>
-            <input type='text' name='title' placeholder='Enter Title Here' maxlength="50" required>
-            <br>
-            <input type='text' name='description' placeholder='Enter Description Here' id="description" maxlength="125"  required>
-            <br>
-            <button class="btn btn-info">Submit </button>
-          </form>
+              <h2>Create Campaign </h2>
+              <input type='text' name='title' placeholder='Enter Title Here' maxlength="50" required>
+              <br>
+              <input type='text' name='description' placeholder='Enter Description Here' id="description" maxlength="125"  required>
+              <br>
+              <button class="btn btn-info">Submit </button>
+            </form>
+        </section>
+        <div class="container body-signed-in">
           <div class="row">
-          <div class="col-md-4">
-            <section id="clicked-campaign"></section>
-          </div>
-          <div class="col-md-8">
-            <form id="create-session">
+            <div class="col-md-4">
+              <section id="clicked-campaign"></section>
+            </div>
+            <div class="col-md-8">
+              <form id="create-session">
                 <h3>Add a Session! </h3>
                 <input type='text' name='title' placeholder='Enter Title Here' maxlength="50" required>
                 <br>

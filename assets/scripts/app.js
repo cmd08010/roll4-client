@@ -8,56 +8,48 @@ const sessionEvents = require('./session/events')
 const store = require('./store')
 const campaignUi = require('./campaign/ui')
 const sessionUi = require('./session/ui')
+const utils = require('./utils')
 // use require without a reference to ensure a file is bundled
 // require('./example')
 
 $(() => {
   // your JS code goes here
 
-  // user events
+  // user events - signed in or out
+  $('#about-us').on('click', userEvents.onShowAboutUs)
+
+  // user events NOT signed in
+  $('#user-signed-in-nav').hide()
+  $('#no-user-nav-bar').show()
+  $('.user-signed-in').hide()
+  utils.showNonUserView()
+
   $('#sign-in').on('submit', userEvents.onSignIn)
   $('#sign-up').on('submit', userEvents.onSignUp)
-  $('#sign-out').on('click', userEvents.onSignOut)
-
-  // show sign up and sign in forms
-  $('#sign-in').hide()
-  $('#sign-up').hide()
 
   $('#show-signin').on('click', () => {
     $('#sign-in').toggle()
-    $('#message').hide()
-    if ($('.no-user').is(':hidden')) { $('.no-user').show() }
+    $('#sign-up').hide()
+    $('#about-us-message').hide()
+    $('#carouselExampleControls').show()
   })
   $('#show-signup').on('click', () => {
     $('#sign-up').toggle()
-    $('#message').hide()
-    if ($('.no-user').is(':hidden')) { $('.no-user').show() }
+    $('#sign-in').hide()
+    $('#about-us-message').hide()
+    $('#carouselExampleControls').show()
   })
 
-  if (!store.user) {
-    $('.user-signed-in').hide()
-  } else {
-    $('.user-signed-in').show()
-  }
-  // show change password form and then enable event listener
+// user events signed in
+  $('#sign-out').on('click', userEvents.onSignOut)
   $('#change-password-button').on('click', userEvents.onShowChangePasswordForm)
   $('.user-options').on('submit', '#change-password', userEvents.onChangePassword)
-
-  // show and hide user forms
-  $('#user-signed-in-nav').hide()
-  $('#change-password').hide()
-
-  $('#about-us').on('click', userEvents.onShowAboutUs)
-  $('#message').hide()
-
 
   $('#dice').on('click', userEvents.onShowHome)
 
   // campaign event listeners
   $('#create-campaign-button').on('click', () => {
     $('#create-campaign').toggle()
-    $('#all-sessions').toggle()
-    $('#all-campaigns').toggle()
 })
   $('#create-campaign').hide()
   $('#create-session').hide()
