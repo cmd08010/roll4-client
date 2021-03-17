@@ -26,21 +26,27 @@ const createSessionFailure = () => {
 }
 
 const showAllSessionsSuccess = (response) => {
+  utils.resetMessaging()
   $('.user-signed-in').show()
   $('#all-sessions').show()
   $('#all-campaigns').hide()
   $('#clicked-session').html('')
-  $('#all-sessions').html(`<div id="all-sessions-title">${store.user.userName.toUpperCase()} has ${response.sessions.length} sessions for the ${store.campaign.title} campaign!</div>`)
-  $('.each-session').html('')
-  response.sessions.map(session => {
-    const date = moment(session.createdAt).format("MM DD YYYY")
-    $('#all-sessions').append(`<div class="each-session"><h1><button class="session btn btn-link" data-session-id=${session._id}>${session.title}</button></h1>
-    <p>Latest Session was on: ${date} </p>
-    <h2>Session Notes:</h2>
-    <br><h4>${session.text}</h4>
-    </div>
-    `)
-  })
+  if (response.sessions) {
+    $('#all-sessions').html(`<div id="all-sessions-title">${store.user.userName.toUpperCase()} has ${response.sessions.length} sessions for the ${store.campaign.title} campaign!</div>`)
+    $('.each-session').html('')
+    response.sessions.map(session => {
+      const date = moment(session.createdAt).format('MM DD YYYY')
+      $('#all-sessions').append(`<div class="each-session"><h1><button class="session btn btn-link" data-session-id=${session._id}>${session.title}</button></h1>
+      <p>Latest Session was on: ${date} </p>
+      <h2>Session Notes:</h2>
+      <br><h4>${session.text}</h4>
+      </div>
+      `)
+    })
+  } else {
+    $('#all-sessions').html(`<div id="all-sessions-title">${store.user.userName.toUpperCase()} has 0 sessions for the ${store.campaign.title} campaign! Click the add Session button to create one</div>`)
+    $('.each-session').html('')
+  }
 }
 
 const sessionPageHtml = (session) => {
@@ -79,7 +85,7 @@ const sessionPageHtml = (session) => {
 
 const showSessionPage = (response) => {
   store.session = response.session
-  $('#message').text('')
+  utils.resetMessaging()
   $('#create-session').hide()
   $('#create-campaign').hide()
   $('#clicked-campaign').hide()
@@ -90,12 +96,13 @@ const showSessionPage = (response) => {
 }
 
 const deleteSessionSuccess = () => {
+  utils.resetMessaging()
   $('#clicked-session').html('Session Deleted!')
   $('.user-signed-in').show()
-  $('#message').text('')
   $('#welcome').text('')
   $('#each-session').show()
   $('.modal-backdrop').remove()
+  $('body').removeClass('modal-open')
 }
 
 const showApiFailureMessaging = () => {
@@ -103,7 +110,7 @@ const showApiFailureMessaging = () => {
 }
 
 const showEditSessionPage = () => {
-  $('#message').html('')
+  utils.resetMessaging()
   $('#clicked-session').html(`
   <form id="edit-clicked-session">
     <h2>${store.session.title}</h2>
@@ -119,8 +126,8 @@ const showEditSessionPage = () => {
 const editSessionSuccess = (response) => {
 store.session = response.campaign.sessions[response.campaign.sessions.length - 1]
 const session = response.campaign.sessions[response.campaign.sessions.length - 1]
-$('#message').html('').removeClass()
-  $('#clicked-session').html(sessionPageHtml(session))
+utils.resetMessaging()
+$('#clicked-session').html(sessionPageHtml(session))
 }
 module.exports = {
   createSessionSuccess,

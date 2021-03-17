@@ -6,7 +6,7 @@ const showAboutUs = () => {
   $('#message').html('')
   $('#about-us-message').toggle().addClass('about-us')
   if (store.user) {
-    $('.user-signed-in').toggle()
+    $('.user-signed-in').show()
   } else {
     $('#sign-in').hide()
     $('#sign-up').hide()
@@ -21,9 +21,11 @@ const showHome = () => {
     if (store.campaign) {
       campaignEvents.onShowLatestCampaign()
     } else {
+      utils.resetMessaging()
       $('#create-campaign').show()
     }
   } else {
+    utils.resetMessaging()
     utils.showNonUserView()
   }
 }
@@ -72,7 +74,6 @@ const changePasswordSuccess = (response) => {
 }
 
 const errorMessaging = (error) => {
-  console.log(error.responseJSON.message)
   $('#message').show()
   $('#message').html(`${error.responseJSON.message}`).addClass('failure')
 }

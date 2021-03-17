@@ -19,11 +19,12 @@ const createCampaignFailure = (response) => {
 }
 
 const showAllCampaignsSuccess = (response) => {
+  utils.resetMessaging()
   $('.col-md-4').hide()
   $('.col-md-8').hide()
   $('.user-options').hide()
   $('#all-campaigns').show()
-  $('#all-campaigns').parents().show()
+  $('.body-signed-in').show()
   $('#all-campaigns').html(`<h2>${store.user.userName.toUpperCase()} has ${response.campaigns.length} campaigns going</h2>
     <hr>`)
   response.campaigns.map(campaign => {
@@ -40,6 +41,12 @@ const showCampaignPage = (response) => {
   store.campaign = response.campaign
   utils.showUserView()
   utils.resetMessaging()
+  $('.body-signed-in').show()
+  $('.col-md-4').show()
+  $('.col-md-8').show()
+  $('.user-options').show()
+  $('#all-campaigns').hide()
+  $('#clicked-campaign').show()
   $('#message').html(`${store.user.userName.toUpperCase()} is signed in`)
   $('#clicked-campaign').html(`
     <div class="title">${response.campaign.title}
@@ -76,9 +83,7 @@ const showCampaignPage = (response) => {
     </div>
   </div>
 `)
-  if (response.sessions.length > 0 || response.campaign.sessions > 0) {
-    sessionUi.showAllSessionsSuccess(response.campaign)
-  }
+  sessionUi.showAllSessionsSuccess(response)
 }
 
 const showLatestCampaign = (response) => {
@@ -96,16 +101,15 @@ const showLatestCampaign = (response) => {
 }
 
 const deleteCampaignSuccess = (response) => {
-  $('#message').text('')
-  $('#message').text('')
+  utils.resetMessaging()
   $('#all-sessions').html('')
   $('#clicked-campaign').html('Campaign Deleted! Click show all campaigns to view your other campaigns')
   $('.modal-backdrop').remove()
+  $('body').removeClass('modal-open')
 }
 
 const showEditCampaignPage = (response) => {
-  $('#message').text('')
-  $('#message').text('')
+  utils.resetMessaging()
   $('#clicked-campaign').html(`
     <form id="edit-clicked-campaign">
     <h2>${store.campaign.title}</h2>
@@ -119,8 +123,7 @@ const showEditCampaignPage = (response) => {
 }
 
 const editCampaignSuccess = (response) => {
-  $('#message').text('')
-  $('#message').html('').removeClass()
+  utils.resetMessaging()
   store.campaign = response.campaign
   showCampaignPage(response)
 }

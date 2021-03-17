@@ -11,7 +11,7 @@ const clearForms = () => {
 }
 
 const resetMessaging = () => {
-  $('#message').html('')
+  $('#message').html('').removeClass()
 }
 
 const hideSiblings = (selection) => {
@@ -46,6 +46,7 @@ const showNonUserView = () => {
   // show non user
   $('#no-user-nav-bar').show()
   $('.no-user').show()
+  $('#carouselExampleControls').show()
 
   // hide user logged in items
   $('.user-signed-in').hide()

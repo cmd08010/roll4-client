@@ -14,6 +14,14 @@ const utils = require('./utils')
 
 $(() => {
   // your JS code goes here
+  $(document).on({
+    ajaxStart: function () {
+      $('body').addClass('loading')
+    },
+    ajaxStop: function () {
+      $('body').removeClass('loading')
+    }
+  })
 
   // user events - signed in or out
   $('#about-us').on('click', userEvents.onShowAboutUs)
@@ -49,6 +57,7 @@ $(() => {
 
   // campaign event listeners
   $('#create-campaign-button').on('click', () => {
+    $('.user-options').show()
     $('#create-campaign').toggle()
 })
   $('#create-campaign').hide()
@@ -62,7 +71,6 @@ $(() => {
     campaignUi.showEditCampaignPage()
   })
   $('#clicked-campaign').on('submit', '#edit-clicked-campaign', campaignEvents.onEditCampaign)
-
 
   // show a campaign's page
   $('#all-campaigns').on('click', '.campaign', campaignEvents.onShowCampaignPage)
